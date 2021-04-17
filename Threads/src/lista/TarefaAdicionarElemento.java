@@ -13,9 +13,9 @@ import java.util.List;
  */
 public class TarefaAdicionarElemento implements Runnable
 {
-    private List<String> listaUm;
+    private lista listaUm;
     int numeroDoThread;
-    public TarefaAdicionarElemento(List<String> listaUm,int numeroDoThread)
+    public TarefaAdicionarElemento(lista listaUm,int numeroDoThread)
     {
         this.listaUm=listaUm;
         this.numeroDoThread=numeroDoThread;
@@ -27,7 +27,7 @@ public class TarefaAdicionarElemento implements Runnable
     public void run()
     {
         for (int i = 0; i < 100 ; i++) {
-            listaUm.add("Thread "+numeroDoThread + " - " + i);
+            listaUm.adicionaElementos("Thread "+numeroDoThread + " - " + i);
             
         }
     }

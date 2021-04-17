@@ -5,6 +5,9 @@
  */
 package lista;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class lista {
     private String[] elementos = new String[1000];
@@ -14,6 +17,17 @@ public class lista {
         synchronized(this){
         this.elementos[indice] = elemento;
         this.indice++;
+         /*   try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+               e.printStackTrace();
+            }*/
+        if(this.indice==this.elementos.length)
+        {
+            System.out.println("lista ta cheia, notificando");
+            this.notify();
+        }
+        
     } 
 }
     public int tamanho() {
@@ -22,5 +36,11 @@ public class lista {
 
     public String pegaElemento(int posicao) {
         return this.elementos[posicao];
+    }
+
+   public boolean estaCheia() {
+        
+       return this.indice==this.tamanho();
+        
     }
 }

@@ -18,11 +18,14 @@ public class AluraThread {
         Thread convidado2= new Thread(new TarefaNumero2(Banheiro),"Thread 2 ");
         Thread convidado3= new Thread(new TarefaNumero1(Banheiro),"Thread 3 ");
         Thread convidado4= new Thread(new TarefaNumero2(Banheiro),"Thread 4 ");
-        
+        Thread limpeza = new Thread(new TarefaLimpeza(Banheiro),"Limpeza");
+        limpeza.setDaemon(true);
         convidado1.start();
         convidado2.start();
         convidado3.start();
         convidado4.start();
+        limpeza.start();
+        
     }
     
 }
